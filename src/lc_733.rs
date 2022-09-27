@@ -2,11 +2,11 @@ struct Solution;
 
 impl Solution {
     fn bfs(image: &mut Vec<Vec<i32>>, x: usize, y: usize, color: i32) -> Vec<Vec<i32>> {
-        let q = Vec::new();
+        let mut q = Vec::new();
         q.push((x, y));
         while !q.is_empty() {
-            let mut x = q.last().unwrap().0;
-            let mut y = q.last().unwrap().1;
+            let x = q.last().unwrap().0;
+            let y = q.last().unwrap().1;
             image[x][y] = color;
             if x > 0 && image[x - 1][y] == image[x][y] {
                 q.push((x - 1, y));

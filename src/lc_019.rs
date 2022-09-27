@@ -50,7 +50,15 @@ impl Solution {
         if second.is_none() {
             return head.unwrap().next;
         }
-        second.unwrap().next = ;
+        second.unwrap().next = second
+            .as_ref()
+            .unwrap()
+            .next
+            .clone()
+            .as_ref()
+            .unwrap()
+            .next
+            .clone();
         return new_head;
     }
 }
