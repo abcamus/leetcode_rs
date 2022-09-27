@@ -21,10 +21,11 @@ mod lc_415;
 mod lc_557;
 mod lc_567;
 mod lc_676;
+mod lc_695;
 mod lc_704;
+mod lc_733;
 mod lc_876;
 mod lc_977;
-mod lc_733;
 
 fn main() {
     println!("Hello, world!");
