@@ -14,11 +14,59 @@ impl ListNode {
 
 struct Solution;
 impl Solution {
-    // 返回子链表的头和尾巴
     fn solve(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut stack = Vec::new();
+        let mut node = head;
+        // 拷贝开销
+        while node.is_some() {
+            stack.push(node.clone());
+            node = node.unwrap().next;
+        }
+
+        if stack.is_empty() {
+            return None;
+        }
+
+        let mut head = stack.pop().unwrap();
+        let mut node = &mut head;
+
+        while !stack.is_empty() {
+            node.as_mut().unwrap().next = stack.pop().unwrap();
+            node = &mut node.as_mut().unwrap().next;
+        }
+
+        node.as_mut().unwrap().next = None;
+
+        return head;
+    }
+    fn solve2(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         unimplemented!()
+        // let mut head = head.clone();
+        // let mut stack = Vec::new();
+        // let mut node = &mut head;
+        // // 无拷贝开销
+        // while node.is_some() {
+        //     stack.push(node);
+        //     node = *stack.last().unwrap();
+        // }
+
+        // if stack.is_empty() {
+        //     return None;
+        // }
+
+        // let mut head = stack.pop().unwrap();
+        // let mut node = head;
+
+        // while !stack.is_empty() {
+        //     node.as_mut().unwrap().next = *stack.pop().unwrap();
+        //     node = &mut node.as_mut().unwrap().next;
+        // }
+
+        // node.as_mut().unwrap().next = None;
+
+        // return *head;
     }
     pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        unimplemented!()
+        return Solution::solve(head);
     }
 }
