@@ -1,3 +1,4 @@
+#![allow(unused)]
 #[macro_use]
 extern crate lazy_static;
 
@@ -12,6 +13,9 @@ mod lc_040;
 mod lc_041;
 mod lc_042;
 mod lc_043;
+mod lc_046;
+mod lc_070;
+mod lc_077;
 mod lc_110;
 mod lc_167;
 mod lc_189;
@@ -28,6 +32,7 @@ mod lc_676;
 mod lc_695;
 mod lc_704;
 mod lc_733;
+mod lc_784;
 mod lc_876;
 mod lc_977;
 mod lc_994;
