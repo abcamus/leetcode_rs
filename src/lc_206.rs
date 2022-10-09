@@ -20,12 +20,11 @@ impl ListNode {
 
 struct Solution;
 impl Solution {
-    fn solve(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let mut stack = Vec::new();
         let mut node = head;
-        // 拷贝
         while node.is_some() {
-            stack.push(node.clone());
+            stack.push(Some(Box::new(ListNode::new(node.as_ref().unwrap().val))));
             node = node.unwrap().next;
         }
 
@@ -37,7 +36,6 @@ impl Solution {
         let mut node = &mut head;
 
         while !stack.is_empty() {
-            // 拷贝
             node.as_mut().unwrap().next = stack.pop().unwrap();
             node = &mut node.as_mut().unwrap().next;
         }
@@ -45,21 +43,6 @@ impl Solution {
         node.as_mut().unwrap().next = None;
 
         return head;
-    }
-
-    fn solve_ref(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        // let mut stack: Vec<RefCell<ListNode>> = Vec::new();
-        // let mut node = head.clone();
-        // while head.is_some().to_owned() {
-        //     let nref = node.as_mut().unwrap();
-        //     stack.push(RefCell::new(**nref.clone()));
-        //     node = (*nref).next;
-        // }
-
-        return None;
-    }
-    pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        return Solution::solve_ref(head);
     }
 }
 
