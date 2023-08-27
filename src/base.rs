@@ -1,4 +1,4 @@
-pub fn add_strings(num1: String, num2: String) -> String {
+pub fn concat_strings(num1: String, num2: String) -> String {
     let (mut op1, mut op2) = if num1.len() > num2.len() {
         (num1.into_bytes(), num2.into_bytes())
     } else {

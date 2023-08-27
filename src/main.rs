@@ -14,6 +14,7 @@ mod lc_041;
 mod lc_042;
 mod lc_043;
 mod lc_046;
+mod lc_056;
 mod lc_070;
 mod lc_077;
 mod lc_082;
